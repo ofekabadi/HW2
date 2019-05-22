@@ -40,6 +40,7 @@ void Zoo::printCommunity(){
 void Zoo::communitySize(){
     int size=_members.size();
     cout<<size<<endl;
+
 }
 
 bool Zoo::animalReproduce(const string &firstParentName,const string
