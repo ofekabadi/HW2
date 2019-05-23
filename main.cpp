@@ -60,8 +60,8 @@ int main() {
                 cin >> name;
             }
             zoo->ancestorsPath(pathOrders);
-        }
-        std::cin >> input;*/
+        }*/
+        std::cin >> input;
     }
 
     delete zoo;

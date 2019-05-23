@@ -22,12 +22,19 @@ class Animal
 {
 public:
     Animal(): _father(NULL), _mother(NULL), _gender(UNKNOWN), _isAdult(false){}
+    //maybe can be deleted
+
     Animal( Animal *fatherPointer, Animal *motherPointer, const string &animalName,
             Gender animalGender): _father(fatherPointer), _mother(motherPointer),
-            _gender(animalGender), _name(animalName), _isAdult(false){}
+            _gender(animalGender), _name(animalName), _isAdult(false)
+            {cout<<animalName<<" created"<<endl;}
+
     ~Animal(){}
+
     void printAnimal();
+
     void grow();
+
     Animal* reproduce(Animal* partner, const string &descendantName,
             Gender descendantGender);
     friend class Zoo;
