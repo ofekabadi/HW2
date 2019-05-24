@@ -19,6 +19,7 @@ class Zoo
 {
 public:
     Zoo(string maleName, string femaleName);
+
     ~Zoo()
     {
         for (vector<Animal*>::const_iterator it=_members.begin(); it!=_members.end(); ++it)

@@ -11,6 +11,8 @@ using std::cin;
 using std::cout;
 using std::endl;
 
+
+
 Zoo::Zoo(string maleName, string femaleName){
     Animal* firstMale= new Animal(NULL, NULL, maleName, MALE);
     Animal* firstFemale= new Animal(NULL, NULL, femaleName, FEMALE);
@@ -22,9 +24,10 @@ Zoo::Zoo(string maleName, string femaleName){
 bool Zoo::euthanize(const string &name) {
     for (vector<Animal*>::const_iterator it=_members.begin(); it!=_members.end(); ++it)
     {
-        if(name==(**it)._name)
+        if(name==(*it)->_name)
         {
-            delete *it;
+            cout<<"euthanizing "<<(*it)->_name<<endl;
+            delete (*it);
             return  true;
         }
     }
@@ -59,8 +62,8 @@ bool Zoo::animalReproduce(const string &firstParentName,const string
 
     for (vector<Animal *>::const_iterator it = _members.begin();
          it != _members.end(); ++it) {
-        if (firstParentName == (**it)._name){
-            if((**it)._gender=MALE)
+        if (firstParentName == (*it)->_name){
+            if((**it)._gender==MALE)
             {
                 fatherExists=true;
                 animalFatherPtr=it;
@@ -75,8 +78,8 @@ bool Zoo::animalReproduce(const string &firstParentName,const string
 
     for (vector<Animal *>::const_iterator it = _members.begin();
          it != _members.end(); ++it) {
-        if (secondParentName == (**it)._name){
-            if((**it)._gender=FEMALE)
+        if (secondParentName == (*it)->_name){
+            if((**it)._gender==FEMALE)
             {
                 motherExists=true;
                 animalMotherPtr=it;
@@ -89,18 +92,25 @@ bool Zoo::animalReproduce(const string &firstParentName,const string
         }
     }
 
-    if(fatherExists==true, motherExists==true)
+    bool uniqueName = true;                  //this is new
+    for (vector<Animal *>::const_iterator it = _members.begin();
+         it != _members.end(); ++it) {
+        if (name == (*it)->_name){
+            uniqueName = false;
+            break;
+        }
+    }
+
+    if(fatherExists && motherExists && uniqueName)
     {
         Animal* newAnimalPtr= (*animalFatherPtr)->reproduce(*animalMotherPtr,
                 name, gender);
-        if(newAnimalPtr!=NULL)          //this is new
+        if(newAnimalPtr!= NULL)          //this is new
         {
             _members.push_back(newAnimalPtr);
             return true;
         }
     }
-    else
-    {
-        return false;
-    }
+
+    return false;
 }

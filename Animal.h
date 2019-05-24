@@ -18,6 +18,7 @@ typedef enum {NAME,GENDER,ADULT,MOTHER,FATHER,
 const std::string toPrint[]= {"Name: ", ", Gender: ",", Is adult: ", ", Mother name: ",
                               ", Father name: ",", Number of children: "};
 
+
 class Animal
 {
 public:
@@ -29,7 +30,7 @@ public:
             _gender(animalGender), _name(animalName), _isAdult(false)
             {cout<<animalName<<" created"<<endl;}
 
-    ~Animal(){}
+    ~Animal(){};
 
     void printAnimal();
 
@@ -37,7 +38,9 @@ public:
 
     Animal* reproduce(Animal* partner, const string &descendantName,
             Gender descendantGender);
+
     friend class Zoo;
+
 
 private:
     Animal * _father;

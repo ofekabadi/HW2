@@ -23,8 +23,6 @@ void Animal::printAnimal() {
 
 Animal* Animal::reproduce(Animal* partner, const string &descendantName, Gender
 descendantGender){
-    cout<<"in Animal"<<endl;                                                 //printings
-    cout<<"name: "<<descendantName<<" gender: "<<descendantGender<<endl;        //printings
     if(partner->_isAdult==false)
     {
         return NULL;
@@ -35,8 +33,8 @@ descendantGender){
     }
     else
     {
-        Animal newAnimal(this, partner, descendantName, descendantGender);
-        Animal* newAnimalPtr;
+        Animal* newAnimalPtr = new Animal (this, partner, descendantName,
+                descendantGender);
 
         cout<<"father: "<<this->_name<<" mother: "<<partner->_name          //printings
         <<" name: "<<descendantName<<" gender: "<<descendantGender<<endl;
