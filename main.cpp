@@ -51,7 +51,7 @@ int main() {
         else if(input == consoleCommands[COMMUNITY_SIZE]){
             zoo->communitySize();
         }
-        /*else if(input == consoleCommands[ANCESTORS_PATH]){
+        else if(input == consoleCommands[ANCESTORS_PATH]){
             vector<string> pathOrders;
             string name;
             cin >> name;
@@ -60,7 +60,7 @@ int main() {
                 cin >> name;
             }
             zoo->ancestorsPath(pathOrders);
-        }*/
+        }
         std::cin >> input;
     }
 

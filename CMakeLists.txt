@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.13)
-project(HW2)
+cmake_minimum_required(VERSION 3.14)
+project(untitled1)
 
 set(CMAKE_CXX_STANDARD 98)
 
-add_executable(HW2 main.cpp Zoo.h Animal.h Animal.cpp Zoo.cpp)
+add_executable(untitled1 main.cpp Zoo.cpp Zoo.h Animal.cpp Animal.h)
